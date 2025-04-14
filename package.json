@@ -8,7 +8,10 @@
     "start:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "dev": "tsc -w & node --watch dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-gql": "graphql-codegen --config codegen.ts"
+    "generate-gql": "graphql-codegen --config codegen.ts",
+    "mcp:monday": "node dist/mcp/monday/server.js",
+    "mcp:monday:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/mcp/monday/server.ts",
+    "mcp:test-client": "ts-node src/mcp/test-client.ts"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +37,7 @@
     "@langchain/core": "^0.3.44",
     "@langchain/langgraph": "^0.2.63",
     "@langchain/openai": "^0.5.5",
+    "@modelcontextprotocol/sdk": "^1.9.0",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "graphql": "^16.10.0",

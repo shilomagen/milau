@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { mondayService } from "../monday/services/monday-service";
 
 /**
  * Webhook service to handle incoming webhook events
@@ -28,22 +27,6 @@ export class WebhookService {
       eventData.value?.personsAndTeams?.length > 0
     ) {
       console.log("Person column updated, processing...");
-      const personId = eventData.value.personsAndTeams[0].id;
-      const itemId = eventData.pulseId; // Monday.com item ID
-      const boardId = eventData.boardId;
-
-      try {
-        if (personId === 63989301) {
-          await mondayService.setTaskStatus(itemId, boardId, "Stuck");
-
-          const item = await mondayService.getItem(itemId);
-          console.log("Item:", item);
-        } else {
-          console.log("Other person ID, skipping...");
-        }
-      } catch (error) {
-        console.error("Error processing task status update:", error);
-      }
     } else {
       console.log("Other column updated, skipping...");
     }

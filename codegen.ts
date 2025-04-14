@@ -12,9 +12,9 @@ const config: CodegenConfig = {
     },
   },
 
-  documents: ["src/monday/graphql/operations/**/*.graphql"],
+  documents: ["src/mcp/monday/graphql/operations/**/*.graphql"],
   generates: {
-    "./src/generated/schema.ts": {
+    "./src/mcp/monday/generated/schema.ts": {
       plugins: ["typescript"],
       config: {
         skipTypename: false,
@@ -25,7 +25,7 @@ const config: CodegenConfig = {
         },
       },
     },
-    "./src/generated/graphql.ts": {
+    "./src/mcp/monday/generated/graphql.ts": {
       plugins: [
         "typescript",
         "typescript-operations",
@@ -47,7 +47,7 @@ const config: CodegenConfig = {
         sdkClass: true,
       },
     },
-    "./src/generated/": {
+    "./src/mcp/monday/generated/": {
       preset: "client",
       plugins: [],
       presetConfig: {
