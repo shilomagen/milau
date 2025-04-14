@@ -1,0 +1,15 @@
+query GetUser($userId: ID!) {
+  users(ids: [$userId]) {
+    id
+    name
+    email
+    photo_thumb_small
+    title
+    phone
+    location
+    teams {
+      id
+      name
+    }
+  }
+} 

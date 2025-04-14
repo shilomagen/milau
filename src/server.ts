@@ -1,5 +1,6 @@
 import express from "express";
 import { webhookService } from "./services/webhook-service";
+import mondayRoutes from "./monday/routes/monday-routes";
 
 /**
  * Express server setup
@@ -31,6 +32,9 @@ export class Server {
   private configureRoutes(): void {
     // Webhook endpoint
     this.app.post("/webhook", webhookService.handleWebhook);
+
+    // Monday.com API routes
+    this.app.use("/api/monday", mondayRoutes);
 
     // Health check endpoint
     this.app.get("/health", (_req, res) => {

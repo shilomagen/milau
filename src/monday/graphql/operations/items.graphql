@@ -1,0 +1,24 @@
+query GetItem($itemId: ID!) {
+  items(ids: [$itemId]) {
+    id
+    name
+    board {
+      id
+      name
+    }
+    group {
+      id
+      title
+    }
+    column_values {
+      id
+      text
+      value
+      type
+    }
+    created_at
+    updated_at
+    creator_id
+    state
+  }
+} 
